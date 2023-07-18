@@ -4,9 +4,17 @@ from textual.widgets import Button, Label
 
 
 class MyModalScreen(ModalScreen):
+    DEFAULT_CSS = """
+    MyModalScreen {
+        align: center middle;
+    }
+    """
     def compose(self):
         yield Label("My modal screen")
         yield Button("Exit")
+
+    def on_button_pressed(self):
+        self.dismiss()
 
 
 class MyApp(App):
